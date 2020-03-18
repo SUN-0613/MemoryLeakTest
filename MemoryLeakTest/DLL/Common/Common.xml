@@ -1,0 +1,560 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Common</name>
+    </assembly>
+    <members>
+        <member name="T:AYam.Common.ComponentModel.ValueConvert">
+            <summary>値変換管理共通メソッド</summary>
+        </member>
+        <member name="M:AYam.Common.ComponentModel.ValueConvert.FromString``1(System.String)">
+            <summary>文字列を型Tに変換</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="value">値</param>
+            <returns>変換値</returns>
+        </member>
+        <member name="M:AYam.Common.ComponentModel.ValueConvert.FromString``1(System.String,``0)">
+            <summary>
+            文字列を型Tに変換
+            </summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="value">値</param>
+            <param name="returnValue">変換失敗時の戻り値</param>
+            <returns>変換値</returns>
+        </member>
+        <member name="T:AYam.Common.Collections.Generic.DisposableList`1">
+            <summary>List()にリソース開放処理</summary>
+            <typeparam name="T">型指定</typeparam>
+        </member>
+        <member name="M:AYam.Common.Collections.Generic.DisposableList`1.Dispose">
+            <summary>開放処理</summary>
+        </member>
+        <member name="T:AYam.Common.IO.Log">
+            <summary>ログファイル出力</summary>
+            <remarks>ログファイル名は タイムスタンプ_タイトル.log とする</remarks>
+        </member>
+        <member name="F:AYam.Common.IO.Log._SaveTerm">
+            <summary>ログ保存期間(日)</summary>
+        </member>
+        <member name="F:AYam.Common.IO.Log._Directory">
+            <summary>ログファイル保存フォルダ</summary>
+        </member>
+        <member name="F:AYam.Common.IO.Log._FileMaxSize">
+            <summary>ログファイルMaxSize</summary>
+        </member>
+        <member name="F:AYam.Common.IO.Log._DefaultSaveTerm">
+            <summary>ログ保存期間(日)の初期値</summary>
+        </member>
+        <member name="F:AYam.Common.IO.Log._DefaultFileMaxSizeKB">
+            <summary>ログファイルMaxSize(KB)の初期値</summary>
+        </member>
+        <member name="M:AYam.Common.IO.Log.Initialize">
+            <summary>設定を初期化して、保存期間を超過したファイルを削除</summary>
+        </member>
+        <member name="M:AYam.Common.IO.Log.Initialize(System.Int32)">
+            <summary>設定を初期化して、保存期間を超過したファイルを削除</summary>
+            <param name="saveTerm">ログ保存期間(日)</param>
+        </member>
+        <member name="M:AYam.Common.IO.Log.Initialize(System.String)">
+            <summary>設定を初期化して、保存期間を超過したファイルを削除</summary>
+            <param name="directory">ログファイル保存フォルダ</param>
+        </member>
+        <member name="M:AYam.Common.IO.Log.Initialize(System.Int32,System.String,System.Int32)">
+            <summary>設定を初期化して、保存期間を超過したファイルを削除</summary>
+            <param name="saveTerm">ログ保存期間(日)</param>
+            <param name="directory">ログファイル保存フォルダ</param>
+            <param name="fileMaxSizeKB">ログファイルMaxSize(KB)</param>
+        </member>
+        <member name="M:AYam.Common.IO.Log.WriteLog(System.String,System.Boolean)">
+            <summary>タイトルをクラス名にしてログファイルを出力</summary>
+            <param name="message">出力内容</param>
+            <param name="isDebugModeOnly">デバッグモード時のみ出力する</param>
+        </member>
+        <member name="M:AYam.Common.IO.Log.WriteLog(System.String,System.String,System.Boolean)">
+            <summary>タイトルをクラス名にしてログファイルを出力</summary>
+            <param name="message">出力内容</param>
+            <param name="title">ログファイル名のタイトル</param>
+            <param name="isDebugModeOnly">デバッグモード時のみ出力する</param>
+        </member>
+        <member name="M:AYam.Common.IO.Log.DebugConsole(System.String,System.Int32)">
+            <summary>デバッグコンソールに出力</summary>
+            <param name="message">出力内容</param>
+            <param name="stackFrameIndex">呼び出しメソッドIndex</param>
+        </member>
+        <member name="M:AYam.Common.IO.Log.GetMethodName(System.Int32)">
+            <summary>このメソッドを呼び出したクラス名＋メソッド名の取得</summary>
+            <param name="stackFrameIndex">呼び出しメソッドIndex</param>
+        </member>
+        <member name="T:AYam.Common.IO.Path">
+            <summary>
+            パス管理共通メソッド
+            </summary>
+        </member>
+        <member name="M:AYam.Common.IO.Path.GetFullPath(System.String,System.String)">
+            <summary>フルパス作成</summary>
+            <param name="directoryPath">フォルダパス</param>
+            <param name="fileName">ファイル名</param>
+            <returns>フルパス</returns>
+        </member>
+        <member name="M:AYam.Common.IO.Path.IsAbsolutePath(System.String)">
+            <summary>指定パスが絶対パスか相対パスか判断</summary>
+            <param name="path">パス</param>
+            <returns>
+            True:絶対パス
+            False:相対パス
+            </returns>
+            <remarks>
+            以下ルールのパスは絶対パスとする
+            ・先頭「\\」で始まるパス
+            ・先頭「*:\」で始まるパス *はワイルド
+            </remarks>
+        </member>
+        <member name="M:AYam.Common.IO.Path.MakeDirectories(System.String)">
+            <summary>フォルダ作成</summary>
+            <param name="path">作成したいフォルダパス</param>
+        </member>
+        <member name="T:AYam.Common.IO.XmlDataFile">
+            <summary>XMLで保管するデータファイルのベースクラス</summary>
+            <remarks>このクラスを継承するクラスでは using System.Xml.Linq の追加を推奨</remarks>
+        </member>
+        <member name="F:AYam.Common.IO.XmlDataFile._FilePath">
+            <summary>ファイルパス</summary>
+        </member>
+        <member name="F:AYam.Common.IO.XmlDataFile._RootElementName">
+            <summary>ルートパス名称</summary>
+        </member>
+        <member name="F:AYam.Common.IO.XmlDataFile._Document">
+            <summary>XMLオブジェクト</summary>
+        </member>
+        <member name="F:AYam.Common.IO.XmlDataFile._Declaration">
+            <summary>XML宣言</summary>
+        </member>
+        <member name="F:AYam.Common.IO.XmlDataFile.Element">
+            <summary>XMLオブジェクト内のルート要素</summary>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.Read">
+            <summary>ファイル読込</summary>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.Save">
+            <summary>ファイル保存</summary>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.Dispose">
+            <summary>終了処理</summary>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.#ctor(System.String,System.String,System.Xml.Linq.XDeclaration)">
+            <summary>
+            データファイル管理
+            XMLファイル読込後、Read()実行
+            using System.Xml.Linq; 推奨
+            </summary>
+            <param name="path">ファイルパス</param>
+            <param name="root">XMLルート要素名</param>
+            <param name="declaration">
+            XML宣言
+            nullの場合は初期値をセット
+            </param>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetValue``1(System.String)">
+            <summary>現在要素の子要素から値取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="tag">子要素タグ名</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetValue``1(System.String,``0)">
+            <summary>現在要素の子要素から値取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="tag">子要素タグ名</param>
+            <param name="defaultValue">値取得失敗時の戻り値</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetValue``1(System.Xml.Linq.XElement)">
+            <summary>指定要素から値取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="element">指定要素</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetValue``1(System.Xml.Linq.XElement,System.String)">
+            <summary>指定要素の子要素から値取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="element">指定要素</param>
+            <param name="tag">子要素タグ名</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetValue``1(System.Xml.Linq.XElement,System.String,``0)">
+            <summary>指定要素の子要素から値取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="element">指定要素</param>
+            <param name="tag">子要素タグ名</param>
+            <param name="defaultValue">値取得失敗時の戻り値</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetValue``1(System.Xml.Linq.XElement,``0)">
+            <summary>指定要素から値取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="element">指定要素</param>
+            <param name="defaultValue">値取得失敗時の戻り値</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetAttribute``1(System.String)">
+            <summary>現在要素の指定属性値を取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="name">属性名称</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetAttribute``1(System.String,``0)">
+            <summary>現在要素の指定属性値を取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">値取得失敗時の戻り値</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetAttribute``1(System.Xml.Linq.XElement,System.String)">
+            <summary>指定要素から指定属性値を取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="element">指定要素</param>
+            <param name="name">属性名称</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.GetAttribute``1(System.Xml.Linq.XElement,System.String,``0)">
+            <summary>指定要素から指定属性値を取得</summary>
+            <typeparam name="T">型指定</typeparam>
+            <param name="element">指定要素</param>
+            <param name="name">属性名称</param>
+            <param name="defaultValue">値取得失敗時の戻り値</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.NewElement(System.Xml.Linq.XName,System.Xml.Linq.XElement)">
+            <summary>新規要素作成</summary>
+            <param name="name">名称</param>
+            <param name="child">子要素</param>
+            <returns>新規要素</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.NewElement(System.Xml.Linq.XName,System.Collections.Generic.List{System.Xml.Linq.XElement})">
+            <summary>新規要素作成</summary>
+            <param name="name">名称</param>
+            <param name="children">子要素一覧</param>
+            <returns>新規要素</returns>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.AddElement(System.Xml.Linq.XElement@,System.Xml.Linq.XElement)">
+            <summary>子要素を追加</summary>
+            <param name="parent">子要素を追加する親要素</param>
+            <param name="child">子要素</param>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.AddElements(System.Xml.Linq.XElement@,System.Collections.Generic.List{System.Xml.Linq.XElement})">
+            <summary>子要素を一括追加</summary>
+            <param name="parent">親要素</param>
+            <param name="children">子要素一覧</param>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.AddAttribute(System.Xml.Linq.XElement@,System.Xml.Linq.XAttribute)">
+            <summary>属性を追加</summary>
+            <param name="element">要素</param>
+            <param name="attribute">属性</param>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.AddAttributes(System.Xml.Linq.XElement@,System.Collections.Generic.List{System.Xml.Linq.XAttribute})">
+            <summary>属性を一括追加</summary>
+            <param name="element">要素</param>
+            <param name="attributes">属性一覧</param>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.WriteFile(System.Collections.Generic.List{System.Xml.Linq.XElement})">
+            <summary>XMLファイル書込</summary>
+            <param name="elements">ルート要素の下位に登録する要素一覧</param>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.WriteFile(System.Xml.Linq.XDocument)">
+            <summary>XMLファイル書込</summary>
+            <param name="document">保存するXMLオブジェクト</param>
+        </member>
+        <member name="M:AYam.Common.IO.XmlDataFile.DeleteXmlFile">
+            <summary>XMLファイル削除</summary>
+        </member>
+        <member name="T:AYam.Common.Text.DisposableStringBuilder">
+            <summary>StringBuilderでリソース解放処理</summary>
+        </member>
+        <member name="F:AYam.Common.Text.DisposableStringBuilder._StringBuilder">
+            <summary>StringBuilder</summary>
+        </member>
+        <member name="P:AYam.Common.Text.DisposableStringBuilder.Item(System.Int32)">
+            <summary>指定した文字位置の文字を取得または設定します</summary>
+            <param name="index">文字の位置</param>
+            <returns>index 位置の Unicode 文字</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.#ctor">
+            <summary>StringBuilderでリソース解放処理</summary>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.#ctor(System.Int32)">
+            <summary>StringBuilderでリソース解放処理</summary>
+            <param name="capacity">推奨開始サイズ</param>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.Clear">
+            <summary>全ての文字列を削除</summary>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.Dispose">
+            <summary>開放処理</summary>
+        </member>
+        <member name="P:AYam.Common.Text.DisposableStringBuilder.Length">
+            <summary>文字列の長さを取得、設定</summary>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.Append(System.String)">
+            <summary>文字列追加</summary>
+            <param name="value">追加文字列</param>
+            <returns>StringBuilder</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.Append(System.Char)">
+            <summary>文字追加</summary>
+            <param name="value">追加文字</param>
+            <returns>StringBuilder</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.AppendLine">
+            <summary>末尾に改行コードを追加</summary>
+            <returns>StringBuilder</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.AppendLine(System.String)">
+            <summary>末尾に改行コードを追加</summary>
+            <param name="value">追加文字列</param>
+            <returns>StringBuilder</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.Equals(System.Text.StringBuilder)">
+            <summary>引数のオブジェクトが自身と同一のものかチェック</summary>
+            <param name="stringBuilder">引数のオブジェクト</param>
+            <returns>
+            true:同一である
+            false:同一でない
+            </returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.Insert(System.Int32,System.String)">
+            <summary>指定した文字位置に文字列を挿入</summary>
+            <param name="index">指定した文字位置</param>
+            <param name="value">挿入文字列</param>
+            <returns>StringBuilder</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.Remove(System.Int32,System.Int32)">
+            <summary>指定した範囲の文字を削除</summary>
+            <param name="startIndex">0 から始まる削除の開始位置</param>
+            <param name="length">削除する文字数</param>
+            <returns>StringBuilder</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.ToString">
+            <summary>StringBuilderの持つ文字列をstring型に変換</summary>
+            <returns>文字列</returns>
+        </member>
+        <member name="M:AYam.Common.Text.DisposableStringBuilder.ToString(System.Int32,System.Int32)">
+            <summary>StringBuilderの持つ文字列をstring型に変換</summary>
+            <param name="startIndex">開始位置</param>
+            <param name="length">文字数</param>
+            <returns>文字列</returns>
+        </member>
+        <member name="T:AYam.Common.DB.SqlServer">
+            <summary>SQL Server 接続管理</summary>
+        </member>
+        <member name="P:AYam.Common.DB.SqlServer.ExceptionMessage">
+            <summary>エラーメッセージ</summary>
+        </member>
+        <member name="P:AYam.Common.DB.SqlServer.IsError">
+            <summary>エラーが発生したか</summary>
+        </member>
+        <member name="F:AYam.Common.DB.SqlServer._SqlConnection">
+            <summary>接続インスタンス</summary>
+        </member>
+        <member name="F:AYam.Common.DB.SqlServer._IsConnect">
+            <summary>接続FLG</summary>
+        </member>
+        <member name="F:AYam.Common.DB.SqlServer._SqlTransaction">
+            <summary>トランザクション</summary>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
+            <summary>
+            SQL Server 操作管理
+            SQL Server認証による接続
+            </summary>
+            <param name="serverName">接続するサーバ名</param>
+            <param name="dbName">データベース名称</param>
+            <param name="userName">ユーザ名</param>
+            <param name="password">パスワード</param>
+            <param name="timeOut">タイムアウト(秒)</param>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.#ctor(System.String,System.String,System.Int32)">
+            <summary>
+            SQL Server 操作管理
+            Windows認証による接続
+            </summary>
+            <param name="serverName">接続するサーバ名</param>
+            <param name="dbName">データベース名称</param>
+            <param name="timeOut">タイムアウト(秒)</param>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.Dispose">
+            <summary>解放処理</summary>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.InitializeException(System.Boolean)">
+            <summary>エラー情報の初期化</summary>
+            <param name="checkConnect">SQL Serverに接続済みかチェックする</param>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.CheckConnect">
+            <summary>SQL Serverに接続済かチェックする</summary>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.Open(System.String)">
+            <summary>SQL Server接続</summary>
+            <param name="connectionString">接続するためのパラメータ</param>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.Close">
+            <summary>切断</summary>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.BeginTransaction">
+            <summary>トランザクション開始</summary>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.Commit">
+            <summary>コミット</summary>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.Rollback">
+            <summary>ロールバック</summary>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.ExecuteQuery(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Int32)">
+            <summary>クエリ実行</summary>
+            <param name="query">SQL文</param>
+            <param name="parameters">SQLパラメータ</param>
+            <param name="queryTimeout">クエリ実行時間(秒)</param>
+            <returns>クエリ実行結果</returns>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.ExecuteQuery(System.String,System.Int32)">
+            <summary>クエリ実行</summary>
+            <param name="query">SQL文</param>
+            <param name="queryTimeout">クエリ実行時間(秒)</param>
+            <returns>クエリ実行結果</returns>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.ExecuteNonQuery(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Int32)">
+            <summary>クエリ実行</summary>
+            <param name="query">SQL文</param>
+            <param name="parameters">SQLパラメータ</param>
+            <param name="queryTimeout">クエリ実行時間(秒)</param>
+            <returns>更新された行数</returns>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.ExecuteQueryToDataTable(System.String,System.Collections.Generic.Dictionary{System.String,System.Object},System.Int32)">
+            <summary>クエリ実行後、DataTableにて返す</summary>
+            <param name="query">SQL文</param>
+            <param name="parameters">SQLパラメータ</param>
+            <param name="queryTimeout">クエリ実行時間(秒)</param>
+            <returns>クエリ実行結果</returns>
+        </member>
+        <member name="M:AYam.Common.DB.SqlServer.ExecuteQueryToDataTable(System.String,System.Int32)">
+            <summary>クエリ実行後、DataTableにて返す</summary>
+            <param name="query">SQL文</param>
+            <param name="queryTimeout">クエリ実行時間(秒)</param>
+            <returns>クエリ実行結果</returns>
+        </member>
+        <member name="T:AYam.Common.MVVM.Custom.EditedViewModelBase">
+            <summary>
+            ViewModel.ベースクラス
+            編集FLG付き
+            </summary>
+        </member>
+        <member name="P:AYam.Common.MVVM.Custom.EditedViewModelBase.IsEdited">
+            <summary>
+            編集FLG
+            true:編集済
+            false:未編集
+            </summary>
+        </member>
+        <member name="F:AYam.Common.MVVM.Custom.EditedViewModelBase._IsEdited">
+            <summary>
+            編集FLG
+            true:編集済
+            false:未編集
+            </summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.Custom.EditedViewModelBase.ResetEditFlg">
+            <summary>
+            編集FLGのリセット
+            </summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.Custom.EditedViewModelBase.CallPropertyChanged">
+            <summary>PropertyChanged()の実行</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.Custom.EditedViewModelBase.CallPropertyChanged(System.String)">
+            <summary>PropertyChanged()の実行</summary>
+            <param name="propertyName">イベントを発生させたいプロパティ名</param>
+        </member>
+        <member name="M:AYam.Common.MVVM.Custom.EditedViewModelBase.CallPropertyChanged(System.Boolean)">
+            <summary>PropertyChanged()の実行</summary>
+            <param name="updateEditedFlg">編集FLGの更新</param>
+        </member>
+        <member name="M:AYam.Common.MVVM.Custom.EditedViewModelBase.CallPropertyChanged(System.String,System.Boolean)">
+            <summary>PropertyChanged()の実行</summary>
+            <param name="propertyName">イベントを発生させたいプロパティ名</param>
+            <param name="updateEditedFlg">編集FLGの更新</param>
+        </member>
+        <member name="T:AYam.Common.MVVM.DelegateCommand`1">
+            <summary>
+            コマンド実装
+            パラメータ有り
+            </summary>
+            <typeparam name="T">コマンドパラメータの型</typeparam>
+        </member>
+        <member name="E:AYam.Common.MVVM.DelegateCommand`1.CanExecuteChanged">
+            <summary>CanExecute変更イベント</summary>
+        </member>
+        <member name="F:AYam.Common.MVVM.DelegateCommand`1._Execute">
+            <summary>実行メソッド</summary>
+        </member>
+        <member name="F:AYam.Common.MVVM.DelegateCommand`1._CanExecute">
+            <summary>実行メソッド処理許可</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand`1.#ctor(System.Action{`0},System.Func{System.Boolean})">
+            <summary>コマンド実装</summary>
+            <param name="execute">実行メソッド</param>
+            <param name="canExecute">実行メソッド処理許可</param>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand`1.CanExecute">
+            <summary>コマンドが実行可能か決定する</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand`1.CanExecute(System.Object)">
+            <summary>コマンドが実行可能か決定する</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand`1.Execute(System.Object)">
+            <summary>コマンド実行</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="T:AYam.Common.MVVM.DelegateCommand">
+            <summary>コマンド実装</summary>
+        </member>
+        <member name="E:AYam.Common.MVVM.DelegateCommand.CanExecuteChanged">
+            <summary>CanExecute変更イベント</summary>
+        </member>
+        <member name="F:AYam.Common.MVVM.DelegateCommand._Execute">
+            <summary>実行メソッド</summary>
+        </member>
+        <member name="F:AYam.Common.MVVM.DelegateCommand._CanExecute">
+            <summary>実行メソッド処理許可</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>コマンド実装</summary>
+            <param name="execute">実行メソッド</param>
+            <param name="canExecute">実行メソッド処理許可</param>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand.CanExecute">
+            <summary>コマンドが実行可能か決定する</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand.CanExecute(System.Object)">
+            <summary>コマンドが実行可能か決定する</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand.Execute">
+            <summary>コマンド実行</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.DelegateCommand.Execute(System.Object)">
+            <summary>コマンド実行</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="T:AYam.Common.MVVM.ViewModelBase">
+            <summary>ViewModel.ベースクラス</summary>
+        </member>
+        <member name="E:AYam.Common.MVVM.ViewModelBase.PropertyChanged">
+            <summary>プロパティ変更イベント</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.ViewModelBase.CallPropertyChanged">
+            <summary>PropertyChanged()の実行</summary>
+        </member>
+        <member name="M:AYam.Common.MVVM.ViewModelBase.CallPropertyChanged(System.String)">
+            <summary>PropertyChanged()の実行</summary>
+            <param name="propertyName">イベントを発生させたいプロパティ名</param>
+        </member>
+    </members>
+</doc>

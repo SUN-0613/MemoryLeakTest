@@ -1,0 +1,584 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommonWPF</name>
+    </assembly>
+    <members>
+        <member name="T:AYam.Common.WPF.Behaviors.Base.BehaviorBase`1">
+            <summary>初期化／終了処理を行うビヘイビアベースクラス</summary>
+            <typeparam name="T">対象コントロール</typeparam>
+        </member>
+        <member name="P:AYam.Common.WPF.Behaviors.Base.BehaviorBase`1.IsDetaching">
+            <summary>OnDetaching()実行終了FLG</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Base.BehaviorBase`1.OnAttached">
+            <summary>イベント登録</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Base.BehaviorBase`1.OnDetaching">
+            <summary>イベント解除</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Base.BehaviorBase`1.OnUnloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>UnLoadedイベント</summary>
+            <param name="sender">対象コントロール</param>
+            <param name="e">イベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.Frame.ContentRenderedBehavior">
+            <summary>Frame.Contentの変更後に以前のContentを初期化するビヘイビア</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Frame.ContentRenderedBehavior.OnAttached">
+            <summary>イベント登録</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Frame.ContentRenderedBehavior.OnDetaching">
+            <summary>イベント解除</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Frame.ContentRenderedBehavior.OnContentRendered(System.Object,System.EventArgs)">
+            <summary>Content表示後のイベント</summary>
+            <param name="sender">Frame</param>
+            <param name="e">イベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.General.KeyDownMoveFocusBehavior">
+            <summary>
+            TextBox用ビヘイビア
+            Enter、カーソルキーで次フォーカス移動
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.General.KeyDownMoveFocusBehavior.OnAttached">
+            <summary>イベント登録</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.General.KeyDownMoveFocusBehavior.OnDetaching">
+            <summary>イベント解除</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.General.KeyDownMoveFocusBehavior.OnPreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>キー押下イベント</summary>
+            <param name="sender">FrameworkElement</param>
+            <param name="e">キーイベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.General.PathsDragAndDropBehavior">
+            <summary>パスのドラッグ＆ドロップ処理を行うビヘイビア</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.Behaviors.General.PathsDragAndDropBehavior.DropFilesProperty">
+            <summary>ドロップされたパス一覧依存プロパティ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Behaviors.General.PathsDragAndDropBehavior.DropFiles">
+            <summary>ドロップされたパス一覧プロパティ</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.General.PathsDragAndDropBehavior.OnAttached">
+            <summary>イベント登録</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.General.PathsDragAndDropBehavior.OnDetaching">
+            <summary>イベント解除</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.General.PathsDragAndDropBehavior.OnPreviewDragOver(System.Object,System.Windows.DragEventArgs)">
+            <summary>パスドラッグイベント</summary>
+            <param name="sender">FrameworkElement</param>
+            <param name="e">ドラッグ内容データ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.General.PathsDragAndDropBehavior.OnDrop(System.Object,System.Windows.DragEventArgs)">
+            <summary>パスドロップイベント</summary>
+            <param name="sender">FrameworkElement</param>
+            <param name="e">ドロップ内容データ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.TextBox.GotFocusBehavior">
+            <summary>TextBox用ビヘイビア</summary>
+            <remarks>フォーカス取得時に全選択状態にする</remarks>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.GotFocusBehavior.OnAttached">
+            <summary>イベント登録</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.GotFocusBehavior.OnDetaching">
+            <summary>イベント解除</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.GotFocusBehavior.OnGotFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>フォーカス取得</summary>
+            <param name="sender">TextBox</param>
+            <param name="e">イベントデータ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.GotFocusBehavior.OnPreviewMouseLeftButtonDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>マウス左クリック</summary>
+            <param name="sender">TextBox</param>
+            <param name="e">マウスボタンイベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly">
+            <summary>
+            TextBox用ビヘイビア
+            整数値のみを入力許可
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnAttached">
+            <summary>
+            イベント登録
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnDetaching">
+            <summary>
+            イベント解除
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnPreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)">
+            <summary>
+            テキスト取得時の処理イベント
+            </summary>
+            <param name="sender">TextBox</param>
+            <param name="e">入力内容データ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnPasteCommand(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            クリップボード貼り付け時の処理イベント
+            </summary>
+            <param name="sender">TextBox</param>
+            <param name="e">実行イベントデータ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.CheckTextInput(System.Object,System.String)">
+            <summary>入力した内容で数値となるかチェック</summary>
+            <param name="sender">TextBox</param>
+            <param name="addText">追加文字</param>
+            <returns>
+            true : 数値OK
+            false : 数値NG
+            </returns>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.TextBox.KeyDownMoveFocusBehavior">
+            <summary>
+            TextBox用ビヘイビア
+            Enter、カーソルキーで次フォーカス移動
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.KeyDownMoveFocusBehavior.OnAttached">
+            <summary>
+            イベント登録
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.KeyDownMoveFocusBehavior.OnDetaching">
+            <summary>
+            イベント解除
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.KeyDownMoveFocusBehavior.OnPreviewKeyDown(System.Object,System.Windows.Input.KeyEventArgs)">
+            <summary>
+            キー押下イベント
+            </summary>
+            <param name="sender">TextBox</param>
+            <param name="e">キーイベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.TextBox.NumericOnly">
+            <summary>
+            TextBox用ビヘイビア
+            数値のみを入力許可
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnAttached">
+            <summary>
+            イベント登録
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnDetaching">
+            <summary>
+            イベント解除
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnPreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)">
+            <summary>
+            テキスト取得時の処理イベント
+            </summary>
+            <param name="sender">TextBox</param>
+            <param name="e">入力内容データ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnPasteCommand(System.Object,System.Windows.Input.ExecutedRoutedEventArgs)">
+            <summary>
+            クリップボード貼り付け時の処理イベント
+            </summary>
+            <param name="sender">TextBox</param>
+            <param name="e">実行イベントデータ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.CheckTextInput(System.Object,System.String)">
+            <summary>入力した内容で数値となるかチェック</summary>
+            <param name="sender">TextBox</param>
+            <param name="addText">追加文字</param>
+            <returns>
+            true : 数値OK
+            false : 数値NG
+            </returns>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior">
+            <summary>Window.Closing用ビヘイビア</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.TitleProperty">
+            <summary>メッセージボックスタイトル依存プロパティ</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.TextProperty">
+            <summary>メッセージボックスタイトル依存プロパティ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.Title">
+            <summary>メッセージボックスタイトル</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.Text">
+            <summary>メッセージボックス文章</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.OnAttached">
+            <summary>ビヘイビア登録</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.OnDetaching">
+            <summary>ビヘイビア解除</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.OnClosing(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>Window.Closingイベント</summary>
+            <param name="sender">Window</param>
+            <param name="e">Closingイベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Behaviors.Window.DisposeViewModelBehavior">
+            <summary>Windowの閉じる処理でViewModelのDisposeを実行するビヘイビア</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Window.DisposeViewModelBehavior.OnAttached">
+            <summary>イベント登録</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Window.DisposeViewModelBehavior.OnDetaching">
+            <summary>イベント解除</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Window.DisposeViewModelBehavior.OnClosed(System.Object,System.EventArgs)">
+            <summary>Windowが閉じられた時の処理イベント</summary>
+            <param name="sender">Window</param>
+            <param name="e">イベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Converters.BitmapConverter">
+            <summary>BitmapをBitmapSourceへ変換</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BitmapConverter.DeleteObject(System.IntPtr)">
+            <summary>メモリ解放</summary>
+            <param name="hObject">Bitmapのハンドル</param>
+            <returns>削除成否</returns>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BitmapConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Bitmap -> BitmapSource</summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>BitmapSource</returns>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BitmapConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>今回は使用しない</summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>今回は使用しない</returns>
+        </member>
+        <member name="T:AYam.Common.WPF.Converters.BoolVisibilityConverter">
+            <summary>bool型からVisibility型へ変換</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            bool -> Visibility
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Visibility -> bool
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Customize.Controls.ListViewEx">
+            <summary>ListViewカスタマイズ</summary>
+            <remarks>Binding可能なSelectedItemsを追加</remarks>
+        </member>
+        <member name="F:AYam.Common.WPF.Customize.Controls.ListViewEx.SelectedItemsExProperty">
+            <summary>SelectedItems依存プロパティ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Customize.Controls.ListViewEx.SelectedItemsEx">
+            <summary>SelectedItemsプロパティ</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Customize.Controls.ListViewEx.OnSelectionChanged(System.Windows.Controls.SelectionChangedEventArgs)">
+            <summary>SelectedItems変更イベント</summary>
+            <param name="e">変更内容データ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Customize.Controls.TreeViewEx">
+            <summary>TreeViewカスタマイズ</summary>
+            <remarks>Binding可能なSelectedItemを追加</remarks>
+        </member>
+        <member name="F:AYam.Common.WPF.Customize.Controls.TreeViewEx.SelectedItemExProperty">
+            <summary>SelectedItem依存プロパティ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Customize.Controls.TreeViewEx.SelectedItemEx">
+            <summary>SelectedItemプロパティ</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Customize.Controls.TreeViewEx.OnSelectedItemChanged(System.Windows.RoutedPropertyChangedEventArgs{System.Object})">
+            <summary>SelectedItem変更イベント</summary>
+            <param name="e">変更データ内容</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Interfaces.IClosing">
+            <summary>Window.Closing用Interface</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Interfaces.IClosing.IsClosabled">
+            <summary>Window.Closing処理実装</summary>
+            <returns>
+            True :閉じる処理続行
+            False:閉じる処理中止
+            </returns>
+        </member>
+        <member name="T:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase">
+            <summary>印刷するページのModelベース</summary>
+            <remarks>
+            参照の追加
+            ReachFramework
+            System.Printing
+            </remarks>
+        </member>
+        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PageSizeName">
+            <summary>
+            印刷用紙指定
+            </summary>
+        </member>
+        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PageOrientation">
+            <summary>
+            印刷向き指定
+            </summary>
+        </member>
+        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PageSize">
+            <summary>
+            印刷サイズ指定
+            </summary>
+            <remarks>
+            初期値はA4サイズ縦方向
+            </remarks>
+        </member>
+        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PrintPages">
+            <summary>
+            印刷ページ一覧
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.Dispose">
+            <summary>
+            終了処理
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.InitializePages">
+            <summary>
+            印刷ページ一覧の初期化
+            </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.Print">
+            <summary>
+            印刷実行
+            </summary>
+            <remarks>エラーメッセージ</remarks>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.CreatePageContent(System.Object,System.Windows.Size)">
+            <summary>
+            PageからFixedPageを作成し、PageContentに追加
+            </summary>
+            <param name="sender">Page</param>
+            <param name="size">縦横サイズ</param>
+            <returns>PageContent</returns>
+        </member>
+        <member name="T:AYam.Common.WPF.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Properties.Resources.Culture">
+            <summary>
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.General.CommonDialogTriggerAction">
+            <summary>ファイルを開くダイアログを表示するためのビヘイビア</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.TriggerActions.General.CommonDialogTriggerAction.ResultProperty">
+            <summary>ダイアログの処理結果依存プロパティ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.TriggerActions.General.CommonDialogTriggerAction.Result">
+            <summary>ダイアログの処理結果プロパティ</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.General.CommonDialogTriggerAction.Invoke(System.Object)">
+            <summary>ダイアログを表示</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.General.LanguageTriggerAction">
+            <summary>言語変更トリガアクション</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.General.LanguageTriggerAction.Invoke(System.Object)">
+            <summary>言語を変更</summary>
+            <param name="parameter">LanguageInfoクラス</param>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.General.MessageBoxTriggerAction">
+            <summary>MessageBoxを表示するためのトリガアクション</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.General.MessageBoxTriggerAction.Invoke(System.Object)">
+            <summary>MessageBoxを表示</summary>
+            <param name="parameter">プロパティ変更イベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.Page.DisposeViewModelTriggerAction">
+            <summary>表示Page変更時に以前のPageの初期化を行うトリガアクション</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.Page.DisposeViewModelTriggerAction.Invoke(System.Object)">
+            <summary>以前のPageの初期化処理</summary>
+            <param name="parameter">プロパティ変更イベントデータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.TextBox.UpdateTextTriggerAction">
+            <summary>TextBox用トリガアクション</summary>
+            <remarks>bool型プロパティの変更イベント発生時にTextPropertyを更新するトリガ</remarks>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.TextBox.UpdateTextTriggerAction.Invoke(System.Object)">
+            <summary>TextProperty更新</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.Window.CloseWindowTriggerAction">
+            <summary>自Windowを閉じるトリガアクション</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.Window.CloseWindowTriggerAction.Invoke(System.Object)">
+            <summary>Windowを閉じる</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.Window.ShowDialogTriggerAction">
+            <summary>WindowからDialogを表示するトリガアクション</summary>
+            <remarks>Window型を継承しているプロパティの変更イベント発生時にDialogを表示するトリガ</remarks>
+        </member>
+        <member name="F:AYam.Common.WPF.TriggerActions.Window.ShowDialogTriggerAction.StartupLocationProperty">
+            <summary>Dialogの初期表示位置依存プロパティ</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.TriggerActions.Window.ShowDialogTriggerAction.DialogResultProperty">
+            <summary>Dialogの戻り値依存プロパティ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.TriggerActions.Window.ShowDialogTriggerAction.StartupLocation">
+            <summary>Dialogの初期表示位置</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.TriggerActions.Window.ShowDialogTriggerAction.DialogResult">
+            <summary>Dialogの戻り値</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.Window.ShowDialogTriggerAction.Invoke(System.Object)">
+            <summary>Dialog表示</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.TriggerActions.Window.ShowOwnedWindowTriggerAction">
+            <summary>Windowから新たなWindowを表示するトリガアクション</summary>
+            <remarks>Window型を継承しているプロパティの変更イベント発生時にWindowを表示するトリガ</remarks>
+        </member>
+        <member name="F:AYam.Common.WPF.TriggerActions.Window.ShowOwnedWindowTriggerAction.StartupLocationProperty">
+            <summary>Dialogの初期表示位置依存プロパティ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.TriggerActions.Window.ShowOwnedWindowTriggerAction.StartupLocation">
+            <summary>Dialogの初期表示位置</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.TriggerActions.Window.ShowOwnedWindowTriggerAction.Invoke(System.Object)">
+            <summary>Dialog表示</summary>
+            <param name="parameter">パラメータ</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Windows.Base.LanguageInfo">
+            <summary>表示言語情報</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.Windows.Base.LanguageInfo.Culture">
+            <summary>規定カルチャ</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.Base.LanguageInfo.LanguageDictionary">
+            <summary>該当言語のResourceDictionary</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.Base.LanguageInfo.SelectedCulture">
+            <summary>選択中のカルチャ</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.Base.LanguageInfo.#ctor">
+            <summary>表示言語情報</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.Base.LanguageInfo.GetResourceDictionary(System.String,System.String,System.String)">
+            <summary>ResourceDictionaryの取得</summary>
+            <param name="path">ResourceDictionaryの保存フォルダパス</param>
+            <param name="culture">選択中のカルチャ</param>
+            <param name="fileName">ResourceDictionaryのファイル名</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.Base.LanguageInfo.UpdateResourceDictionary">
+            <summary>ResourceDictionary更新</summary>
+        </member>
+        <member name="T:AYam.Common.WPF.Windows.MessageBoxInfo">
+            <summary>メッセージボックス表示内容</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.MessageBoxInfo.Message">
+            <summary>
+            表示するテキスト
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.MessageBoxInfo.Title">
+            <summary>
+            表示するタイトルバー
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.MessageBoxInfo.Button">
+            <summary>
+            表示するボタンを指定する値
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.MessageBoxInfo.Image">
+            <summary>
+            表示するアイコンを指定する値
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.MessageBoxInfo.DefaultResult">
+            <summary>
+            規定の結果を指定する値
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.MessageBoxInfo.Options">
+            <summary>
+            オプションを指定する値オブジェクト
+            </summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Windows.MessageBoxInfo.Result">
+            <summary>
+            結果
+            </summary>
+        </member>
+        <member name="T:AYam.Common.WPF.Windows.PageLanguageInfo">
+            <summary>Page.表示言語情報</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.Windows.PageLanguageInfo._LanguagePath">
+            <summary>ResourceDictionaryの保存フォルダパス</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.PageLanguageInfo.#ctor(System.String)">
+            <summary>表示言語情報</summary>
+            <param name="fileName">ResourceDictionaryのファイル名</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.PageLanguageInfo.#ctor(System.String,System.String)">
+            <summary>表示言語情報</summary>
+            <param name="fileName">ResourceDictionaryのファイル名</param>
+            <param name="selectedCulture">選択カルチャ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.PageLanguageInfo.#ctor(System.String,System.String,System.String)">
+            <summary>表示言語情報</summary>
+            <param name="fileName">ResourceDictionaryのファイル名</param>
+            <param name="selectedCulture">選択カルチャ</param>
+            <param name="languagePath">ResourceDictionaryの保存フォルダパス</param>
+        </member>
+        <member name="T:AYam.Common.WPF.Windows.WindowLanguageInfo">
+            <summary>Window.表示言語情報</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.Windows.WindowLanguageInfo._LanguagePath">
+            <summary>ResourceDictionaryの保存フォルダパス</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.WindowLanguageInfo.#ctor(System.String)">
+            <summary>表示言語情報</summary>
+            <param name="fileName">ResourceDictionaryのファイル名</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.WindowLanguageInfo.#ctor(System.String,System.String)">
+            <summary>表示言語情報</summary>
+            <param name="fileName">ResourceDictionaryのファイル名</param>
+            <param name="selectedCulture">選択カルチャ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Windows.WindowLanguageInfo.#ctor(System.String,System.String,System.String)">
+            <summary>表示言語情報</summary>
+            <param name="fileName">ResourceDictionaryのファイル名</param>
+            <param name="selectedCulture">選択カルチャ</param>
+            <param name="languagePath">ResourceDictionaryの保存フォルダパス</param>
+        </member>
+    </members>
+</doc>
