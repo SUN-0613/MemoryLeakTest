@@ -32,10 +32,10 @@ namespace MemoryLeakTest.Forms.ViewModels
         public DelegateCommand<string> ButtonCommand { get; private set; }
 
         /// <summary>スタートボタン操作許可</summary>
-        public bool IsEnabledStartButton { get; private set; }
+        public bool IsEnabledStartButton { get; private set; } = true;
 
         /// <summary>ストップボタン操作許可</summary>
-        public bool IsEnabledStopButton { get { return !IsEnabledStartButton; } }
+        public bool IsEnabledStopButton { get; private set; } = false;
 
         /// <summary>ステータス</summary>
         public string Status { get; set; } = "STOP";
@@ -61,10 +61,12 @@ namespace MemoryLeakTest.Forms.ViewModels
                     {
 
                         case "start":
-                            _Model.OnStart();
+                            _Model.OnStart(IsClearCollections);
                             break;
 
                         case "stop":
+                            IsEnabledStopButton = false;
+                            CallPropertyChanged(nameof(IsEnabledStopButton));
                             _Model.IsLoop = false;
                             break;
 
@@ -99,7 +101,7 @@ namespace MemoryLeakTest.Forms.ViewModels
             CallPropertyChanged(nameof(MemoryUsage));
 
             // ログ出力
-            Log.WriteLog("Memory = " + MemoryUsage);
+            Log.WriteLog("Memory = " + MemoryUsage, "Memory");
 
         }
 
@@ -126,6 +128,7 @@ namespace MemoryLeakTest.Forms.ViewModels
         {
 
             IsEnabledStartButton = value;
+            IsEnabledStopButton = !value;
 
             CallPropertyChanged(nameof(IsEnabledStartButton));
             CallPropertyChanged(nameof(IsEnabledStopButton));

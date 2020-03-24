@@ -55,13 +55,16 @@ namespace MemoryLeakTest.Forms.Models
         }
 
         /// <summary>メモリ計測開始</summary>
-        public async void OnStart()
+        /// <param name="isCollectionClear">コレクションクリア実行FLG</param>
+        public async void OnStart(bool isCollectionClear)
         {
 
             var nextCollect = DateTime.Now.AddMinutes(30);
 
             _ChangeEnabled?.Invoke(false);
             IsLoop = true;
+
+            Log.WriteLog("○コレクションクリア:" + (isCollectionClear ? "あり" : "なし") + "で処理開始", "Memory");
 
             while (IsLoop)
             {
@@ -115,6 +118,7 @@ namespace MemoryLeakTest.Forms.Models
 
             }
 
+            Log.WriteLog("処理終了", "Memory");
             _UpdateStatus?.Invoke("STOP", "");
             _ChangeEnabled?.Invoke(true);
 
@@ -161,7 +165,7 @@ namespace MemoryLeakTest.Forms.Models
         {
 
             GC.Collect();
-            Log.WriteLog("★GC.Collect()実行");
+            Log.WriteLog("★GC.Collect()実行", "Memory");
 
         }
 

@@ -104,6 +104,9 @@
             整数値のみを入力許可
             </summary>
         </member>
+        <member name="F:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.GotFocusText">
+            <summary>フォーカス取得時のText</summary>
+        </member>
         <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnAttached">
             <summary>
             イベント登録
@@ -113,6 +116,16 @@
             <summary>
             イベント解除
             </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnGotFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>フォーカス取得</summary>
+            <param name="sender">TextBox</param>
+            <param name="e">イベントデータ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnLostFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>フォーカス喪失</summary>
+            <param name="sender">TextBox</param>
+            <param name="e">イベントデータ</param>
         </member>
         <member name="M:AYam.Common.WPF.Behaviors.TextBox.IntegerOnly.OnPreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)">
             <summary>
@@ -166,6 +179,9 @@
             数値のみを入力許可
             </summary>
         </member>
+        <member name="F:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.GotFocusText">
+            <summary>フォーカス取得時のText</summary>
+        </member>
         <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnAttached">
             <summary>
             イベント登録
@@ -175,6 +191,16 @@
             <summary>
             イベント解除
             </summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnGotFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>フォーカス取得</summary>
+            <param name="sender">TextBox</param>
+            <param name="e">イベントデータ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnLostFocus(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>フォーカス喪失</summary>
+            <param name="sender">TextBox</param>
+            <param name="e">イベントデータ</param>
         </member>
         <member name="M:AYam.Common.WPF.Behaviors.TextBox.NumericOnly.OnPreviewTextInput(System.Object,System.Windows.Input.TextCompositionEventArgs)">
             <summary>
@@ -214,6 +240,9 @@
         <member name="P:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.Text">
             <summary>メッセージボックス文章</summary>
         </member>
+        <member name="F:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior._IsForceClosing">
+            <summary>強制終了</summary>
+        </member>
         <member name="M:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.OnAttached">
             <summary>ビヘイビア登録</summary>
         </member>
@@ -224,6 +253,9 @@
             <summary>Window.Closingイベント</summary>
             <param name="sender">Window</param>
             <param name="e">Closingイベントデータ</param>
+        </member>
+        <member name="M:AYam.Common.WPF.Behaviors.Window.ClosingCheckBehavior.SystemEvents_SessionEnding(System.Object,Microsoft.Win32.SessionEndingEventArgs)">
+            <summary>Windowsの終了処理</summary>
         </member>
         <member name="T:AYam.Common.WPF.Behaviors.Window.DisposeViewModelBehavior">
             <summary>Windowの閉じる処理でViewModelのDisposeを実行するビヘイビア</summary>
@@ -262,6 +294,93 @@
             <param name="parameter">The converter parameter to use.</param>
             <param name="culture">The culture to use in the converter.</param>
             <returns>今回は使用しない</returns>
+        </member>
+        <member name="T:AYam.Common.WPF.Converters.BoolToBackgroundConverter">
+            <summary>bool値から背景色を決定</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Converters.BoolToBackgroundConverter.TrueColor">
+            <summary>true時の配色</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Converters.BoolToBackgroundConverter.FalseColor">
+            <summary>false時の配色</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolToBackgroundConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            bool -> background
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>background</returns>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolToBackgroundConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            background -> bool
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:AYam.Common.WPF.Converters.BoolToForegroundConverter">
+            <summary>bool値から文字色を決定</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Converters.BoolToForegroundConverter.TrueColor">
+            <summary>true時の配色</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Converters.BoolToForegroundConverter.FalseColor">
+            <summary>false時の配色</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolToForegroundConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            bool -> background
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>background</returns>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolToForegroundConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            background -> bool
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>bool</returns>
+        </member>
+        <member name="T:AYam.Common.WPF.Converters.BoolToResultStringConverter">
+            <summary>bool値から文字列を決定</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Converters.BoolToResultStringConverter.TrueWords">
+            <summary>true時の出力文字</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.Converters.BoolToResultStringConverter.FalseWords">
+            <summary>false時の出力文字</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolToResultStringConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            bool -> background
+            </summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>background</returns>
+        </member>
+        <member name="M:AYam.Common.WPF.Converters.BoolToResultStringConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            background -> bool
+            </summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>bool</returns>
         </member>
         <member name="T:AYam.Common.WPF.Converters.BoolVisibilityConverter">
             <summary>bool型からVisibility型へ変換</summary>
@@ -322,7 +441,39 @@
             False:閉じる処理中止
             </returns>
         </member>
-        <member name="T:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase">
+        <member name="T:AYam.Common.WPF.MVVM.PageViewModelBase">
+            <summary>表示Page用ViewModel</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.MVVM.PageViewModelBase.LanguageInfo">
+            <summary>表示言語情報</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.MVVM.PageViewModelBase.IsVisibileFunctionButtons">
+            <summary>ファンクションボタン枠の表示</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.PageViewModelBase.CallPropertiesChangedCulture">
+            <summary>表示言語切替に伴うプロパティ更新</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.PageViewModelBase.FunctionMethod(System.String)">
+            <summary>ファンクションキー実行メソッド</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.MVVM.PageViewModelBase.SetPage">
+            <summary>表示ページの切り替え</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.MVVM.PageViewModelBase._ResourceDictionaryFileName">
+            <summary>表示言語用ResourceDictionaryのファイル名</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.PageViewModelBase.#ctor(System.String)">
+            <summary>表示Page用ViewModel</summary>
+            <param name="resourceDictionaryFileName">表示言語用ResourceDictionaryのファイル名</param>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.PageViewModelBase.Dispose">
+            <summary>解放処理</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.PageViewModelBase.SetCulture(System.String)">
+            <summary>表示言語変更</summary>
+            <param name="culture">新規言語</param>
+        </member>
+        <member name="T:AYam.Common.WPF.MVVM.PrintPageModelBase">
             <summary>印刷するページのModelベース</summary>
             <remarks>
             参照の追加
@@ -330,17 +481,17 @@
             System.Printing
             </remarks>
         </member>
-        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PageSizeName">
+        <member name="F:AYam.Common.WPF.MVVM.PrintPageModelBase.PageSizeName">
             <summary>
             印刷用紙指定
             </summary>
         </member>
-        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PageOrientation">
+        <member name="F:AYam.Common.WPF.MVVM.PrintPageModelBase.PageOrientation">
             <summary>
             印刷向き指定
             </summary>
         </member>
-        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PageSize">
+        <member name="F:AYam.Common.WPF.MVVM.PrintPageModelBase.PageSize">
             <summary>
             印刷サイズ指定
             </summary>
@@ -348,34 +499,54 @@
             初期値はA4サイズ縦方向
             </remarks>
         </member>
-        <member name="F:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.PrintPages">
+        <member name="F:AYam.Common.WPF.MVVM.PrintPageModelBase.PrintPages">
             <summary>
             印刷ページ一覧
             </summary>
         </member>
-        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.Dispose">
+        <member name="M:AYam.Common.WPF.MVVM.PrintPageModelBase.Dispose">
             <summary>
             終了処理
             </summary>
         </member>
-        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.InitializePages">
+        <member name="M:AYam.Common.WPF.MVVM.PrintPageModelBase.InitializePages">
             <summary>
             印刷ページ一覧の初期化
             </summary>
         </member>
-        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.Print">
+        <member name="M:AYam.Common.WPF.MVVM.PrintPageModelBase.Print">
             <summary>
             印刷実行
             </summary>
             <remarks>エラーメッセージ</remarks>
         </member>
-        <member name="M:AYam.Common.WPF.MVVM.Custom.PrintPageModelBase.CreatePageContent(System.Object,System.Windows.Size)">
+        <member name="M:AYam.Common.WPF.MVVM.PrintPageModelBase.CreatePageContent(System.Object,System.Windows.Size)">
             <summary>
             PageからFixedPageを作成し、PageContentに追加
             </summary>
             <param name="sender">Page</param>
             <param name="size">縦横サイズ</param>
             <returns>PageContent</returns>
+        </member>
+        <member name="T:AYam.Common.WPF.MVVM.WindowViewModelBase">
+            <summary>Window向けViewModelベースクラス</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.MVVM.WindowViewModelBase.LanguageInfo">
+            <summary>表示言語情報</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.WindowViewModelBase.CallPropertiesChangedCulture">
+            <summary>表示言語切替に伴うプロパティ更新</summary>
+        </member>
+        <member name="F:AYam.Common.WPF.MVVM.WindowViewModelBase._ResourceDictionaryFileName">
+            <summary>表示言語用ResourceDictionaryのファイル名</summary>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.WindowViewModelBase.#ctor(System.String)">
+            <summary>Window向けViewModelベースクラス</summary>
+            <param name="resourceDictionaryFileName">表示言語用ResourceDictionaryのファイル名</param>
+        </member>
+        <member name="M:AYam.Common.WPF.MVVM.WindowViewModelBase.SetCulture(System.String)">
+            <summary>表示言語変更</summary>
+            <param name="culture">新規言語</param>
         </member>
         <member name="T:AYam.Common.WPF.Properties.Resources">
             <summary>
@@ -392,6 +563,12 @@
               すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
               現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
             </summary>
+        </member>
+        <member name="T:AYam.Common.WPF.ResourceDictionaries.TextContent">
+            <summary>ResourceDictionaryのテキスト</summary>
+        </member>
+        <member name="P:AYam.Common.WPF.ResourceDictionaries.TextContent.Content">
+            <summary>表示内容</summary>
         </member>
         <member name="T:AYam.Common.WPF.TriggerActions.General.CommonDialogTriggerAction">
             <summary>ファイルを開くダイアログを表示するためのビヘイビア</summary>

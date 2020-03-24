@@ -37,7 +37,7 @@
   <ItemGroup>
     <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>DLL\Common\Common.dll</HintPath>
+      <HintPath>DLL\CommonWPF\Common.dll</HintPath>
     </Reference>
     <Reference Include="CommonWPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

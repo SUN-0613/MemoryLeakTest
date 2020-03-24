@@ -33,7 +33,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1" VerticalAlignment="Center" Orientation="Horizontal" >
-            <CheckBox IsChecked="{Binding IsClearCollections}" Content="Collections.Clear" VerticalContentAlignment="Center" />
+            <CheckBox IsChecked="{Binding IsClearCollections}" Content="Collections.Clear" VerticalContentAlignment="Center" IsEnabled="{Binding IsEnabledStartButton}" />
             <TextBlock Text="Status:" Margin="5,0,0,0" />
             <TextBlock Text="{Binding Status}" />
         </StackPanel>
@@ -51,13 +51,13 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Content="Start">
+            <Button Grid.Column="0" Content="Start" IsEnabled="{Binding IsEnabledStartButton}" >
                 <Button.InputBindings>
                     <MouseBinding MouseAction="LeftClick" Command="{Binding ButtonCommand}" CommandParameter="start" />
                 </Button.InputBindings>
             </Button>
 
-            <Button Grid.Column="1" Content="Stop">
+            <Button Grid.Column="1" Content="Stop" IsEnabled="{Binding IsEnabledStopButton}" >
                 <Button.InputBindings>
                     <MouseBinding MouseAction="LeftClick" Command="{Binding ButtonCommand}" CommandParameter="stop" />
                 </Button.InputBindings>
