@@ -35,10 +35,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common">
+    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\Common\Common.dll</HintPath>
     </Reference>
-    <Reference Include="CommonWPF">
+    <Reference Include="CommonWPF, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>DLL\CommonWPF\CommonWPF.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions">
@@ -79,6 +81,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\CollectionData.cs" />
+    <Compile Include="Data\RandomValue.cs" />
+    <Compile Include="Forms\Models\MainForm.cs" />
+    <Compile Include="Forms\Models\SubWindow.cs" />
+    <Compile Include="Forms\ViewModels\MainForm.cs" />
+    <Compile Include="Forms\ViewModels\SubWindow.cs" />
+    <Compile Include="Forms\Views\MainForm.xaml.cs">
+      <DependentUpon>MainForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Views\SubWindow.xaml.cs">
+      <DependentUpon>SubWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -103,6 +117,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Forms\Views\MainForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\Views\SubWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
